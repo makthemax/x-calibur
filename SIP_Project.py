@@ -37,8 +37,7 @@ EMI = to_int(monthly_installment)
 def shareprice(no_of_months):
     list=[]
     while (len(list)<no_of_months):
-        i=0
-        sprice=input("Enter the share price of month",i=i+1)
+        sprice=input("Enter the share price of month")
         list.append(sprice)
     
     return list
