@@ -38,5 +38,18 @@ for x in d.keys():
 
 print newd
 
+d_words = {}
+for x in newd.keys():
+    d_words[x] = len(newd[x])
+
+print d_words
+
+d_times = {}
+for x in d.keys():
+    d_times[x] = flatten(d[x])[1]
+
+print d_times
+
+
 d.clear()
 f.close()
