@@ -1,0 +1,42 @@
+
+f = open("input.txt","r+")
+
+k = f.readlines()
+
+m = []
+
+for i in range(len(k)):
+        m.append(k[i].split())
+
+#print m
+
+d = {}
+for i in range(len(k)):
+    key =m[i][0]+m[i][1]
+    value = m[i]
+    if key in d.keys():
+        d[key].append(value)
+        print d.values()
+    else :
+        d[key] = value
+    
+print d
+
+def flatten(seq,container=None):
+    if container is None:
+        container = []
+    for s in seq:
+        if hasattr(s,'__iter__'):
+            flatten(s,container)
+        else:
+            container.append(s)
+    return container
+
+newd = {}
+for x in d.keys():
+    newd[x]= flatten(d[x])
+
+print newd
+
+d.clear()
+f.close()
