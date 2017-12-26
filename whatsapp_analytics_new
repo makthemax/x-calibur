@@ -1,0 +1,56 @@
+# This code tells you the number of messages a member has posted in a group and how many words in total he has posted.
+# It can also be used to find out number of times some one has has said a word.
+
+import re
+
+#v = input('enter the name of the file')
+f = open('mmsc','rw')
+data = f.read()
+#print data
+
+x = re.findall(r'-(.*?)\n',data)
+#y = re.findall(r':(.*?)\n',data)
+
+key = []
+value = []
+for i in x :
+    m = re.findall(r'^(.*?):',i)
+    key.append(m)
+
+for i in x :
+    z = re.findall(r':(.*?)$',i)
+    value.append(z)
+l = []
+m = []
+d = {}
+for i in range(len(key)):
+    if not key[i]:
+        pass
+    else:
+        l.append(key[i][0])
+        m.append(value[i][0])
+
+for i in range(1):
+    print type(l[i]),type(m[i])
+    print l[i],m[i]
+
+for i in range(len(m)):
+    key = l[i]
+    value = m[i]
+    if key in d.keys():
+        d[key] += value
+        #print d.values()
+    else:
+        d[key] = value
+        
+        
+for i in d :
+#   print i,len(d[i])
+    count = 0
+    
+    for j in range(len(l)):
+            if i == l[j]:
+                count += 1
+    
+    print i,count 
+            
