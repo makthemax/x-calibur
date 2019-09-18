@@ -12,5 +12,5 @@ _BigOne_
 + text in green
 ! text in orange
 # text in gray
-% What color?
+^ What color?
 ```
